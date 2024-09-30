@@ -1,5 +1,6 @@
 const pool = require('../config/db');
 
+// Return all the available courses
 const getAllCourses = async () => {
     const query = `
         SELECT courses.course_name, professors.name AS professor_name

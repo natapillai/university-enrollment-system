@@ -6,6 +6,11 @@ const assignGrade = async (req, res) => {
         const gradeResult = await gradeService.assignGradeToStudent(enrollment_id, grade);
         res.status(201).json(gradeResult);
     } catch (error) {
+        if (error.message === 'Grade already exists for this enrollment') {
+            return res.status(400).json({
+                message: error.message
+            });
+        }
         res.status(500).json({
             message: 'Error assigning grade'
         });

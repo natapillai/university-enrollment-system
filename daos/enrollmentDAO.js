@@ -1,5 +1,6 @@
 const pool = require('../config/db');
 
+// Enrolls a student into a course
 const enrollStudent = async (student_id, course_id) => {
     const query = `
         INSERT INTO enrollments (student_id, course_id)
